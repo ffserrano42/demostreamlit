@@ -8,6 +8,7 @@ from io import BytesIO
 from ultralytics import YOLO
 import numpy as np
 
+print(f"Uso de memoria al iniciar la aplicacion RAM: {psutil.virtual_memory().used / 1e6} MB")
 # Cargar modelo YOLO
 
 #@st.cache_data
@@ -186,4 +187,4 @@ if uploaded_image:
             st.table(class_count_df_11_aug)
             st.subheader('total by score')
             st.table(df_score_range_aug)
-print(f"Uso de memoria RAM: {psutil.virtual_memory().used / 1e6} MB")
+print(f"Uso de memoria al finalizar la aplicacion RAM: {psutil.virtual_memory().used / 1e6} MB")
