@@ -17,7 +17,7 @@ def load_model_ca():
 
 
 # Cargar modelo YOLO
-model_proyecto=load_model_sa()  #este es el modelo entrenado sin datos aumentados.
+#model_proyecto=load_model_sa()  #este es el modelo entrenado sin datos aumentados.
 #model_proyecto_aug=YOLO("best_proyecto_v11_6.pt") # este es el modelo entrenado con datos aumentados
 model_proyecto_aug=load_model_ca() # este es el modelo entrenado con datos aumentados
 
