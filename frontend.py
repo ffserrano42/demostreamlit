@@ -76,7 +76,7 @@ if uploaded_image:
         progress_bar = st.progress(0)
         st.text("procesando")
         #st.text(object_names)
-        model_proyecto=YOLO("best_model_sa_1.pt")  #este es el modelo entrenado sin datos aumentados.        
+        #model_proyecto=YOLO("best_model_sa_1.pt")  #este es el modelo entrenado sin datos aumentados.        
         model_proyecto_aug=YOLO("best_proyecto_conaumentacion.pt") # este es el modelo entrenado con datos aumentados       
         # Simulación de proceso con la barra de progreso
         for percent_complete in range(100):
