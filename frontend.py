@@ -1,15 +1,17 @@
+import cv2
 import streamlit as st
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image
 import time
 import pandas as pd
-import numpy as np
+from io import BytesIO
 from ultralytics import YOLO
+import numpy as np
 
 # Cargar modelo YOLO
 
-@st.cache_data
-def load_model_sa():
-	  return YOLO("best_model_sa_1.pt")
+#@st.cache_data
+#def load_model_sa():
+#	  return YOLO("best_model_sa_1.pt")
 
 @st.cache_data
 def load_model_ca():
