@@ -1,4 +1,5 @@
 import cv2
+import psutil
 import streamlit as st
 from PIL import Image
 import time
@@ -184,3 +185,5 @@ if uploaded_image:
             st.table(class_count_df_11_aug)
             st.subheader('total by score')
             st.table(df_score_range_aug)
+st.write(f"Uso de memoria RAM: {psutil.virtual_memory().used / 1e6} MB")
+del model_proyecto_aug
