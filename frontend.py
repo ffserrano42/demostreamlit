@@ -11,14 +11,15 @@ import numpy as np
 print(f"Uso de memoria al iniciar la aplicacion RAM: {psutil.virtual_memory().used / 1e6} MB")
 # Cargar modelo YOLO
 
-#@st.cache_data
-#def load_model_sa():
-#	  return YOLO("best_model_sa_1.pt")
-
 @st.cache_resource
 def load_model_ca():
-    print("cargando modelo con aumentacion")
-    return YOLO("best_proyecto_conaumentacion.pt")
+     print("cargando modelo sin aumentacion")
+     return YOLO("best_model_sa_1.pt")
+
+#@st.cache_resource
+#def load_model_ca():
+#    print("cargando modelo con aumentacion")
+#    return YOLO("best_proyecto_conaumentacion.pt")
 
 
 # Cargar modelo YOLO
