@@ -21,7 +21,7 @@ def load_model_ca():
 
 # Cargar modelo YOLO
 #model_proyecto=load_model_sa()  #este es el modelo entrenado sin datos aumentados.
-model_proyecto_aug=load_model_ca() # este es el modelo entrenado con datos aumentados
+#model_proyecto_aug=load_model_ca() # este es el modelo entrenado con datos aumentados
 
 
 
@@ -78,7 +78,7 @@ if uploaded_image:
         st.text("procesando")
         #st.text(object_names)
         #model_proyecto=YOLO("best_model_sa_1.pt")  #este es el modelo entrenado sin datos aumentados.        
-        #model_proyecto_aug=YOLO("best_proyecto_conaumentacion.pt") # este es el modelo entrenado con datos aumentados       
+        model_proyecto_aug=load_model_ca() # este es el modelo entrenado con datos aumentados       
         # Simulación de proceso con la barra de progreso
         for percent_complete in range(100):
             time.sleep(0.01)
