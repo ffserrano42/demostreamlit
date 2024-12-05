@@ -16,7 +16,8 @@ import numpy as np
 
 @st.cache_resource
 def load_model_ca():
-	  return YOLO("best_proyecto_conaumentacion.pt")
+    print("cargando modelo con aumentacion")
+    return YOLO("best_proyecto_conaumentacion.pt")
 
 
 # Cargar modelo YOLO
