@@ -21,7 +21,7 @@ import numpy as np
 # Cargar modelo YOLO
 #model_proyecto=load_model_sa()  #este es el modelo entrenado sin datos aumentados.
 #model_proyecto_aug=YOLO("best_proyecto_v11_6.pt") # este es el modelo entrenado con datos aumentados
-model_proyecto_aug=YOLO("best_proyecto_conaumentacion.pt") # este es el modelo entrenado con datos aumentados
+
 
 
 #rango de detecciones por score para que en cada modelo se pueda mostrar las detecciones por score
@@ -76,6 +76,7 @@ if uploaded_image:
         progress_bar = st.progress(0)
         st.text("procesando")
         #st.text(object_names)
+        model_proyecto_aug=YOLO("best_proyecto_conaumentacion.pt") # este es el modelo entrenado con datos aumentados
         
         # Simulación de proceso con la barra de progreso
         for percent_complete in range(100):
