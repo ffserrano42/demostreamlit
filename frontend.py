@@ -14,14 +14,14 @@ import numpy as np
 #def load_model_sa():
 #	  return YOLO("best_model_sa_1.pt")
 
-#@st.cache_data
-#def load_model_ca():
-#	  return YOLO("best_proyecto_conaumentacion.pt")
+@st.cache_resource
+def load_model_ca():
+	  return YOLO("best_proyecto_conaumentacion.pt")
 
 
 # Cargar modelo YOLO
 #model_proyecto=load_model_sa()  #este es el modelo entrenado sin datos aumentados.
-#model_proyecto_aug=YOLO("best_proyecto_v11_6.pt") # este es el modelo entrenado con datos aumentados
+model_proyecto_aug=load_model_ca() # este es el modelo entrenado con datos aumentados
 
 
 
@@ -78,7 +78,7 @@ if uploaded_image:
         st.text("procesando")
         #st.text(object_names)
         #model_proyecto=YOLO("best_model_sa_1.pt")  #este es el modelo entrenado sin datos aumentados.        
-        model_proyecto_aug=YOLO("best_proyecto_conaumentacion.pt") # este es el modelo entrenado con datos aumentados       
+        #model_proyecto_aug=YOLO("best_proyecto_conaumentacion.pt") # este es el modelo entrenado con datos aumentados       
         # Simulación de proceso con la barra de progreso
         for percent_complete in range(100):
             time.sleep(0.01)
@@ -177,8 +177,7 @@ if uploaded_image:
                         cv2.rectangle(original_image_v11_aug, (x0, y0), (x1, y1), (255, 0,0), 1)                    
                         # Añade la etiqueta y la probabilidad a la caja
                         label = f'{object_name}: {score}'
-                        cv2.putText(original_image_v11_aug, label, (x0, y0 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 0,0), 1)
-        del model_proyecto_aug
+                        cv2.putText(original_image_v11_aug, label, (x0, y0 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 0,0), 1)        
         with col3:
             st.image(original_image_v11_aug, caption="Imagen con detecciones con aumentacion", use_container_width=True)      
             class_count_df_11_aug = pd.DataFrame(class_counts_v11_aug.items(), columns=['Clase', 'Ocurrencias'])
@@ -186,4 +185,4 @@ if uploaded_image:
             st.table(class_count_df_11_aug)
             st.subheader('total by score')
             st.table(df_score_range_aug)
-st.write(f"Uso de memoria RAM: {psutil.virtual_memory().used / 1e6} MB")
+print(f"Uso de memoria RAM: {psutil.virtual_memory().used / 1e6} MB")
